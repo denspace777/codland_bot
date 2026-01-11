@@ -1,6 +1,6 @@
 import telebot
-from bot_logic import gen_pass #, gen_rnd_smile
-
+from bot_logic import gen_pass  #, gen_rnd_smile
+from bot_logic import gen_rnd_smile
 # Замени 'TOKEN' на токен твоего бота
 # Этот токен ты получаешь от BotFather, чтобы бот мог работать
 bot = telebot.TeleBot("7639056794:AAHrGV-Yh87bNoAsukyjpXtNCsjD6mX4m8g")
@@ -40,6 +40,9 @@ def send_pass(message):
 def send_bebebe(message):
     bot.reply_to(message, "Поздравляю! Ты нашёл секретную команду! XD")
 
+@bot.message_handler(commands=['make_smile'])
+def send_bebebe(message):
+    bot.reply_to(message, gen_rnd_smile())
 
 
 @bot.message_handler(func=lambda message: True)
